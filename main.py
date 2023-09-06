@@ -49,15 +49,24 @@ def sistema(t, y):
     return [z, (- b * z - k * x + fun)/m]
 
 
-# Definimos arreglo de tiempo
-t = np.linspace(0, 50, 100)
-t_span = (0,50)
+# Definimos arreglo de tiempo para simular
+tinicio = 0
+tfinal = 60
+
+t = np.linspace(tinicio, tfinal, 100)
+t_span = (tinicio,tfinal)
 
 # Definimos condiciones iniciales
 ci = [0, 0]
 
 # Resolvemos
 respuesta = solve_ivp(sistema, t_span, [0, 0], method='RK45', t_eval=t)
+
+# Ploteamos resultado
+plt.plot(respuesta.t, respuesta.y[0])
+plt.ylabel('Posición del cuerpo respecto\n a posición inicial [cm]')
+plt.xlabel('Tiempo [s]')
+plt.show()
 
 # Se puede descomentar la siguiente línea si quiere verse la solución que arroja solve_ivp, que es un objeto con campos
 # que muestran información de la solución.
@@ -72,11 +81,3 @@ respuesta = solve_ivp(sistema, t_span, [0, 0], method='RK45', t_eval=t)
 # plt.ylabel('Posición del cuerpo respecto\n a posición inicial [cm]')
 # plt.xlabel('Tiempo [s]')
 # plt.show()
-
-# Ploteamos resultado
-
-#Imprimimos respuesta
-plt.plot(respuesta.t, respuesta.y[0])
-plt.ylabel('Posición del cuerpo respecto\n a posición inicial [cm]')
-plt.xlabel('Tiempo [s]')
-plt.show()
