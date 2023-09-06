@@ -2,6 +2,18 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import solve_ivp
 
+# Este archivo contiene la simulación de un sistema físico masa-amortiguador-resorte hecha en Python utilizando numpy,
+# matplotlib y scipy.
+
+# Dentro de la bibliografía consultada para su realización se encuentra:
+# -	Solving Differential Equations in Python: Higher order ODEs with solve_ivp – University of Edinburgh https://media.ed.ac.uk/media/Solving+Differential+Equations+in+PythonA+Higher+order+ODEs+with+solve_ivp/1_c8g7fwhw
+# - Modelado de Sistemas Dinámicos – Universidad de Baja California https://uabc-msd.blogspot.com/2009/04/masa-resorte-amortiguador.html
+
+# NOTAS PARA SU USO:
+# - En caso de querer simular con valores determinados, ir a línea 27 donde se define la función sistema
+# y cambiar en ellas los parámetros de la función a gusto.
+# - Se ha considerado que se le ejerce una fuerza f contraria a la superficie que se modela en el tiempo con una función
+# escalon. En caso de querer otra entrada, modificar la función f en línea 18.
 
 # Función f de entrada. Representa la fuerza que se ejerce en el cuerpo en dirección contraria a la superficie.
 # Es una función escalón, por lo que optamos por escribir una genérica.
@@ -9,7 +21,6 @@ def f(t, t0, t1, a):
     if t >= t0 and t1 > t:
         return a
     else: return 0
-
 
 
 # La siguiente función devuelve el lado derecho de la ecuación de la segunda derivadad de la posición x con respecto
