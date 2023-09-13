@@ -35,8 +35,8 @@ def sistema(t, y):
     t0 = 0  # Tiempo inicial en segundos
     t1 = 15  # Tiempo final en segundos
     a = 1000  # Fuerza en Newton
-    b = 30  # Viscosidad en Netwon*s/cm
-    k = 25  # Elasticidad en Newton/cm
+    b = 3000  # Viscosidad en Netwon*s/m
+    k = 2500  # Elasticidad en Newton/m
     m = 50  # En kilogramos
 
     # Definimos f
@@ -49,12 +49,10 @@ def sistema(t, y):
     return [z, (- b * z - k * x + fun)/m]
 
 
-# Definimos arreglo de tiempo para simular
-tinicio = 0
-tfinal = 60
+# Definimos arreglo de tiempo
+t = np.linspace(0, 50, 1000)
+t_span = (0,50)
 
-t = np.linspace(tinicio, tfinal, 100)
-t_span = (tinicio,tfinal)
 
 # Definimos condiciones iniciales
 ci = [0, 0]
@@ -80,4 +78,13 @@ plt.show()
 # plt.plot(respuesta.t, arr)
 # plt.ylabel('Posición del cuerpo respecto\n a posición inicial [cm]')
 # plt.xlabel('Tiempo [s]')
+
 # plt.show()
+
+# Ploteamos resultado
+
+#Imprimimos respuesta
+plt.plot(respuesta.t, respuesta.y[0])
+plt.ylabel('Posición del cuerpo respecto\n a posición inicial [m]')
+plt.xlabel('Tiempo [s]')
+plt.show()
