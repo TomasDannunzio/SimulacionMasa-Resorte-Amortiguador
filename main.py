@@ -35,8 +35,8 @@ def sistema(t, y):
     t0 = 0  # Tiempo inicial en segundos
     t1 = 15  # Tiempo final en segundos
     a = 1000  # Fuerza en Newton
-    b = 30  # Viscosidad en Netwon*s/cm
-    k = 25  # Elasticidad en Newton/cm
+    b = 3000  # Viscosidad en Netwon*s/m
+    k = 2500  # Elasticidad en Newton/m
     m = 50  # En kilogramos
 
     # Definimos f
@@ -77,6 +77,6 @@ respuesta = solve_ivp(sistema, t_span, [0, 0], method='RK45', t_eval=t)
 
 #Imprimimos respuesta
 plt.plot(respuesta.t, respuesta.y[0])
-plt.ylabel('Posición del cuerpo respecto\n a posición inicial [cm]')
+plt.ylabel('Posición del cuerpo respecto\n a posición inicial [m]')
 plt.xlabel('Tiempo [s]')
 plt.show()
