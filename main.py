@@ -50,7 +50,7 @@ def sistema(t, y):
 
 
 # Definimos arreglo de tiempo
-t = np.linspace(0, 50, 100)
+t = np.linspace(0, 50, 1000)
 t_span = (0,50)
 
 # Definimos condiciones iniciales
