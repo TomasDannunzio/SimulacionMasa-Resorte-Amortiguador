@@ -58,11 +58,13 @@ t_span = (0,50)
 ci = [0, 0]
 
 # Resolvemos
-respuesta = solve_ivp(sistema, t_span, [0, 0], method='RK45', t_eval=t)
+respuesta = solve_ivp(sistema, t_span, ci, method='RK45', t_eval=t)
 
 # Ploteamos resultado
+
+#Imprimimos respuesta
 plt.plot(respuesta.t, respuesta.y[0])
-plt.ylabel('Posición del cuerpo respecto\n a posición inicial [cm]')
+plt.ylabel('Posición del cuerpo respecto\n a posición inicial [m]')
 plt.xlabel('Tiempo [s]')
 plt.show()
 
@@ -80,11 +82,3 @@ plt.show()
 # plt.xlabel('Tiempo [s]')
 
 # plt.show()
-
-# Ploteamos resultado
-
-#Imprimimos respuesta
-plt.plot(respuesta.t, respuesta.y[0])
-plt.ylabel('Posición del cuerpo respecto\n a posición inicial [m]')
-plt.xlabel('Tiempo [s]')
-plt.show()
